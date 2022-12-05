@@ -3,6 +3,7 @@ public class Computer {
     public String model;
     public String hdd;
     public String ram;
+
     public Computer(int cost, String model) {
         this.cost = cost;
         this.model = model;
@@ -16,15 +17,24 @@ public class Computer {
 
     }
 
+    @Override
+    public String toString() {
+        return "Computer: " +
+                "cost=" + cost +
+                ", model='" + model + '\'' +
+                ", hdd='" + hdd + '\'' +
+                ", ram='" + ram + '\'' +
+                ';';
+    }
+
     public static void main(String[] args) {
         Computer computer1 = new Computer(10000, "Lenovo");
         Computer computer2 = new Computer(12000, "HP", "AMD", "Toshiba");
         Computer.Ram ram = computer1.new Ram("AMD", 16);
         Computer.Hdd hdd = computer2.new Hdd("Toshiba", 16, true);
-        System.out.println("Computer 1- Price: " + computer1.cost + "$; model: " + computer1.model + ";\n" + "Computer 2- Price: " + computer2.cost + "$; model: "
-                + computer2.model + "; ram: " + computer2.ram + "GB; hdd: " + computer2.hdd);
-        ram.enterInformationOfRam();
-        hdd.enterInformationOfHdd();
+        System.out.println(computer1+"\n"+computer2);
+        System.out.println(ram);
+        System.out.println(hdd);
     }
 
     class Ram {
@@ -40,8 +50,12 @@ public class Computer {
 
         }
 
-        public void enterInformationOfRam() {
-            System.out.println("RAM- Name: " + this.name + "; volume: " + this.volume + "GB;");
+        @Override
+        public String toString() {
+            return "Ram: " +
+                    "name='" + name + '\'' +
+                    ", volume=" + volume +
+                    ';';
         }
     }
 
@@ -60,12 +74,21 @@ public class Computer {
             this.type = type;
         }
 
-        public void enterInformationOfHdd() {
+        @Override
+        public String toString() {
             if (this.type) {
-                System.out.println("HDD- Name: " + this.name + "; volume: " + this.volume + "GB; " + " type: external;");
-            }
-            if (!this.type) {
-                System.out.println("HDD- Name: " + this.name + "; volume: " + this.volume + "GB; " + " type: internal;");
+                return "Hdd: " +
+                        "name='" + name + '\'' +
+                        ", volume=" + volume +
+                        ", type=" + "external" +
+                        ';';
+            } else {
+                return "Hdd: " +
+                        "name='" + name + '\'' +
+                        ", volume=" + volume +
+                        ", type=" + "internal" +
+                        ';';
+
             }
         }
     }
