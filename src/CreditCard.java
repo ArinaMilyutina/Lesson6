@@ -2,14 +2,12 @@ public class CreditCard {
     int number;
     int money;
 
-    public int calculateTheAmount(int money) {
+    public void calculateTheAmount(int money) {
         this.money += money;
-        return money;
     }
 
-    public int withdrawTheAmount(int money) {
+    public void withdrawTheAmount(int money) {
         this.money -= money;
-        return money;
     }
 
     @Override
