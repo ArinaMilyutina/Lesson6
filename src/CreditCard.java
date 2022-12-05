@@ -1,28 +1,22 @@
 public class CreditCard {
     int number;
     int money;
-    int calculate;
-    int withdraw;
-    int cash = 1000;
-
-    public int CalculateTheAmount() {
-        calculate = money + cash;
-        return calculate;
+    public int calculateTheAmount(int  money) {
+        this.money +=  money;
+        return money;
     }
 
-    public int WithdrawTheAmount() {
-        withdraw = money - cash;
-        return withdraw;
+    public int withdrawTheAmount(int  money) {
+        this.money -= money;
+        return money;
     }
 
-    public static void OutputInformationFromCard() {
-        CreditCard c1 = new CreditCard(11111, 1000);
-        CreditCard c2 = new CreditCard(22222, 2000);
-        CreditCard c3 = new CreditCard(33333, 3000);
-        System.out.println("Card information:\n" + "Credit card number 1-Number: " + c1.number + ", money: " + c1.money + "$;\n" + "Credit card number 2-Number: "
-                + c2.number + ", money: " + c2.money + "$;\n" + "Credit card number 3-Number: " + c3.number + ", money: " + c3.money + "$;");
-        System.out.println("Current status of cards after money transfers:\n" + "Card 1: " + c1.CalculateTheAmount() + "$;\n" + "Card 2: " + c2.CalculateTheAmount() + "$;\nCard 3: "
-                + c3.WithdrawTheAmount() + "$;");
+    @Override
+    public String toString() {
+        return "CreditCard{" +
+                "number=" + number +
+                ", money=" + money +
+                '}';
     }
 
     CreditCard(int number, int money) {
@@ -31,6 +25,13 @@ public class CreditCard {
     }
 
     public static void main(String[] args) {
-        OutputInformationFromCard();
+        CreditCard c1 = new CreditCard(11111, 1000);
+        CreditCard c2 = new CreditCard(22222, 2000);
+        CreditCard c3 = new CreditCard(33333, 3000);
+        System.out.println(c1+"\n"+c2+"\n"+c3+"\n");
+        c1.calculateTheAmount(100);
+        c2.calculateTheAmount(120);
+        c3.withdrawTheAmount(500);
+        System.out.println("Current status of the card after monetary transaction:\n"+c1+"\n"+c2+"\n"+c3+"\n");
     }
 }
