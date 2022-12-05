@@ -12,10 +12,10 @@ public class CreditCard {
 
     @Override
     public String toString() {
-        return "CreditCard{" +
+        return "CreditCard: " +
                 "number=" + number +
                 ", money=" + money +
-                '}';
+                ';';
     }
 
     CreditCard(int number, int money) {
