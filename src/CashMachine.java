@@ -17,8 +17,8 @@ public class CashMachine {
         countHundred += addHundreds;
         int allAdd = 20 * addTwenties + 50 * addFifties + 100 * addHundreds;
         allMoney = allAdd + allMoney;
-        System.out.println("Count 20 banknote: " + countTwenty + "\nCount 50 banknote: " + countFifty + "\nCount 100 banknote: " + countHundred
-                + "\nAll money: " + allMoney + "BYN;");
+        System.out.println("The number of banknotes after adding money:\nCount 20 banknote: " + countTwenty + ";\nCount 50 banknote: " + countFifty + ";\nCount 100 banknote: " + countHundred
+                + ";\nAll money: " + allMoney + " BYN;\n");
     }
 
     public boolean takeAwayMoney(int count20, int count50, int count100) {
@@ -28,8 +28,8 @@ public class CashMachine {
             countTwenty = countTwenty - count20;
             countFifty = countFifty - count50;
             countHundred += countHundred - count100;
-            System.out.println("Sum of take away money: " + sumOfTakeAwayMoney + "BYN;\n" + "The remaining money in the CashMachine: " + allMoney + "BYN;");
-            System.out.println("Count 20 banknote: " + countTwenty + "\nCount 50 banknote: " + countFifty + "\nCount 100 banknote: " + countHundred);
+            System.out.println("Before withdrawal of money:\n" + "All money: " + allMoney + " BYN;");
+            System.out.println("Count 20 banknote: " + countTwenty + ";\nCount 50 banknote: " + countFifty + ";\nCount 100 banknote: " + countHundred+";");
             return true;
         } else {
             System.out.println("Not enough money :(");
@@ -39,12 +39,12 @@ public class CashMachine {
 
     @Override
     public String toString() {
-        return "CashMachine: " +
-                "countTwenty=" + countTwenty +
-                ", countFifty=" + countFifty +
-                ", countHundred=" + countHundred +
-                ", allMoney=" + allMoney + "BYN" +
-                ';';
+        return "Before starting work CashMachine:\n" +
+                "Count 20 banknote: " + countTwenty +
+                ";\nCount 50 banknote: " + countFifty +
+                ";\nCount 100 banknote: " + countHundred +
+                ";\nAll money: " + allMoney + " BYN" +
+                ";\n";
     }
 
     public static void main(String[] args) {
