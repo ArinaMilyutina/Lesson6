@@ -1,15 +1,15 @@
 public class Computer {
     public int cost;
     public String model;
-    public String hdd;
-    public String ram;
+    public int hdd;
+    public int ram;
 
     public Computer(int cost, String model) {
         this.cost = cost;
         this.model = model;
     }
 
-    public Computer(int cost, String model, String ram, String hdd) {
+    public Computer(int cost, String model, int ram, int hdd) {
         this.cost = cost;
         this.model = model;
         this.ram = ram;
@@ -22,14 +22,14 @@ public class Computer {
         return "Computer: " +
                 "cost=" + cost +
                 ", model='" + model + '\'' +
-                ", hdd='" + hdd + '\'' +
-                ", ram='" + ram + '\'' +
+                ", hdd='" + hdd +"TB"+ '\'' +
+                ", ram='" + ram +"GB"+ '\'' +
                 ';';
     }
 
     public static void main(String[] args) {
         Computer computer1 = new Computer(10000, "Lenovo");
-        Computer computer2 = new Computer(12000, "HP", "AMD", "Toshiba");
+        Computer computer2 = new Computer(12000, "HP", 16, 1);
         Computer.Ram ram = computer1.new Ram("AMD", 16);
         Computer.Hdd hdd = computer2.new Hdd("Toshiba", 16, true);
         System.out.println(computer1+"\n"+computer2);
