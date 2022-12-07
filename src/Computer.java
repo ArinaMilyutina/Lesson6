@@ -2,39 +2,38 @@
 public class Computer {
     public int cost;
     public String model;
-    static Hdd hdd;
-    static Ram ram;
+    Hdd hdd;
+    Ram ram;
 
     public Computer(int cost, String model) {
         this.cost = cost;
         this.model = model;
-        ram= new Ram();
-        hdd= new Hdd();
+        ram = new Ram();
+        hdd = new Hdd();
     }
 
-    public Computer(int cost, String model,Ram ram,Hdd hdd) {
+    public Computer(int cost, String model, Ram ram, Hdd hdd) {
         this.cost = cost;
         this.model = model;
-        Computer.ram =ram;
-        Computer.hdd =hdd;
+        this.ram = ram;
+        this.hdd = hdd;
     }
 
     @Override
     public String toString() {
         return "Computer: " +
                 "cost=" + cost +
-                ", model= " + model  +
-                ", hdd= " + hdd  +
-                ", ram= " + ram  +
-                ';';
+                ", model= " + model +
+                " " + hdd +
+                " " + ram ;
     }
 
     public static void main(String[] args) {
-        Computer computer1 = new Computer(10000, "Lenovo");
-        Computer computer2 = new Computer(12000, "HP", ram,hdd);
         Computer.Ram ram = new Ram("AMD", 16);
-        Computer.Hdd hdd = new Hdd("Toshiba", 16, true);
-        System.out.println(computer1+"\n"+computer2);
+        Computer.Hdd hdd = new Hdd("Toshiba", 16, false);
+        Computer computer1 = new Computer(10000, "Lenovo");
+        Computer computer2 = new Computer(12000, "HP", ram, hdd);
+        System.out.println(computer1 + "\n" + computer2);
         System.out.println(ram);
         System.out.println(hdd);
     }
@@ -44,6 +43,8 @@ public class Computer {
         public int volume;
 
         public Ram() {
+            name = "AMD";
+            this.volume = 24;
         }
 
         public Ram(String name, int volume) {
@@ -55,7 +56,7 @@ public class Computer {
         @Override
         public String toString() {
             return "Ram: " +
-                    "name= " + name  +
+                    "name= " + name +
                     ", volume= " + volume +
                     ";";
         }
@@ -67,6 +68,9 @@ public class Computer {
         public boolean type;
 
         public Hdd() {
+            this.name = "Toshiba";
+            this.volume = 8;
+            this.type = true;
 
         }
 
@@ -80,14 +84,14 @@ public class Computer {
         public String toString() {
             if (this.type) {
                 return "Hdd: " +
-                        "name= " + name  +
+                        "name= " + name +
                         ", volume= " + volume +
-                        ", type= " + "external";
+                        ", type= " + "external;";
             } else {
                 return "Hdd: " +
-                        "name= " + name  +
+                        "name= " + name +
                         ", volume= " + volume +
-                        ", type= " + "internal";
+                        ", type= " + "internal;";
 
             }
         }
